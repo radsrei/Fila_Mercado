@@ -1,4 +1,4 @@
-#ifedef cliente_h
+#ifndef cliente_h
 #define cliente_h
 
 #define NUMERO_DE_CLIENTES 2000
