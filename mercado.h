@@ -1,3 +1,8 @@
+#ifndef mercado_h
+#define mercado_h
+
+
+
 typedef struct caixa
 {
 	int ocupado;
@@ -12,3 +17,5 @@ void iniciar_atendimento_caixa(Caixa** c, int quantidade);
 int esta_livre_caixa(Caixa* c);
 
 void processar_item_caixa(Caixa** c);
+
+#endif
