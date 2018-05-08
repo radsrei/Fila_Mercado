@@ -15,17 +15,17 @@ int main(void){
 	Caixa* caixas[NUMERO_DE_CAIXAS];
 	Fila* fila = criar_fila();
 
-	for(int i =0;i<NUMERO_DE_CLIENTES;i++){
+	for(i =0;i<NUMERO_DE_CLIENTES;i++){
 		colocar_fila(fila, clientes[i]);
 	}
 
-	for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+	for(i =0;i<NUMERO_DE_CAIXAS;i++){
 		caixas[i] = criar_caixa(); 
 	}
 
 	int temGenteEmUmCaixa = 0;
 
-	for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+	for(i =0;i<NUMERO_DE_CAIXAS;i++){
 		if(esta_livre_caixa(caixas[i]) == 0){
 			temGenteEmUmCaixa = 1;
 			break;
@@ -35,7 +35,7 @@ int main(void){
 	while(esta_vazia_fila(fila) == 0 || temGenteEmUmCaixa == 1){
 		temGenteEmUmCaixa = 0;
 
-		for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+		for(i =0;i<NUMERO_DE_CAIXAS;i++){
 			if(esta_livre_caixa(caixas[i]) == 1){
 				printf("caixa %i livre\n",i+1);
 
@@ -52,7 +52,7 @@ int main(void){
 			}
 		}
 
-		for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+		for(i =0;i<NUMERO_DE_CAIXAS;i++){
 			if(esta_livre_caixa(caixas[i]) == 0){
 				temGenteEmUmCaixa = 1;
 				break;
