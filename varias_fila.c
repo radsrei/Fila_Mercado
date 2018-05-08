@@ -15,7 +15,7 @@ int main(void){
 	Caixa* caixas[NUMERO_DE_CAIXAS];
 	Fila* filas[NUMERO_DE_CAIXAS];
 
-	for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+	for(i =0;i<NUMERO_DE_CAIXAS;i++){
 		caixas[i] = criar_caixa();
 		filas[i] = criar_fila(); 
 	}
@@ -33,14 +33,14 @@ int main(void){
 	int temGenteEmUmCaixa = 0;
 	int temGenteEmUmaFila = 0;
 
-	for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+	for(i =0;i<NUMERO_DE_CAIXAS;i++){
 		if(esta_livre_caixa(caixas[i]) == 0){
 			temGenteEmUmCaixa = 1;
 			break;
 		}
 	}
 
-	for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+	for(i =0;i<NUMERO_DE_CAIXAS;i++){
 		if(esta_vazia_fila(filas[i]) == 0){
 			temGenteEmUmaFila = 1;
 			break;
@@ -51,7 +51,7 @@ int main(void){
 	 	temGenteEmUmCaixa = 0;
 	 	temGenteEmUmaFila = 0;
 
-		for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+		for(i =0;i<NUMERO_DE_CAIXAS;i++){
 			if(esta_livre_caixa(caixas[i]) == 1){
 				printf("caixa %i livre\n",i+1);
 
@@ -68,14 +68,14 @@ int main(void){
 			}
 		}
 
-		for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+		for(i =0;i<NUMERO_DE_CAIXAS;i++){
 			if(esta_livre_caixa(caixas[i]) == 0){
 				temGenteEmUmCaixa = 1;
 				break;
 			}
 		}
 
-		for(int i =0;i<NUMERO_DE_CAIXAS;i++){
+		for(i =0;i<NUMERO_DE_CAIXAS;i++){
 			if(esta_vazia_fila(filas[i]) == 0){
 				temGenteEmUmaFila = 1;
 				break;
