@@ -1,3 +1,5 @@
+#ifndef fila_h
+#define fila_h
 typedef struct fila{
 	struct n* cabeca;
 } Fila;
@@ -11,3 +13,6 @@ int retirar_fila(Fila* f);
 int esta_vazia_fila(Fila* f);
 
 void destruir_fila(Fila* f);
+
+
+#endif
