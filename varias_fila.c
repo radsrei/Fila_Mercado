@@ -11,7 +11,7 @@
 int main(void){
 	printf("mercado\n");
 	int tempo = 0;
-	
+	int i;
 	Caixa* caixas[NUMERO_DE_CAIXAS];
 	Fila* filas[NUMERO_DE_CAIXAS];
 
@@ -20,7 +20,7 @@ int main(void){
 		filas[i] = criar_fila(); 
 	}
 
-	int i = 0;
+	i = 0;
 	while(i<NUMERO_DE_CLIENTES){
 		int j = 0;
 		while(j<NUMERO_DE_CAIXAS && i<NUMERO_DE_CLIENTES){

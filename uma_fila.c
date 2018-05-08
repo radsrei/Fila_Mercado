@@ -11,6 +11,7 @@
 int main(void){
 	printf("mercado\n");
 	int tempo = 0;
+	int i;
 	
 	Caixa* caixas[NUMERO_DE_CAIXAS];
 	Fila* fila = criar_fila();

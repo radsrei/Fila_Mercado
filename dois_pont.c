@@ -1,76 +1,60 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 #include "fila.h"
-
-/*typedef struct extremos{
-    struct n* cabeca;
-    struct n* fim;
-}Fila;*/
 
 typedef struct n{
 	int i;
 	struct n* proximo;
 } No;
 
-Fila* criar_fila(){  //Aloca a Struct extremos
-    Fila* f = malloc(sizeof(Fila));
-	f->cabeca = NULL;
-    f->fim = NULL;
+
+Fila* criar_fila(){										
+	Fila* f = malloc(sizeof(Fila));						//aloca a struct extremos
+	f->cabeca = NULL;									//inicializa as variaveis
+	f->fim = NULL;
 	return f;
 }
 
-
-void colocar_fila(Fila* f, int i){// preparar os ponteiros
-
-	No* n = malloc(sizeof(No));
-	n->i = i;
+void colocar_fila(Fila* f, int i){						
+	
+	No* n = malloc(sizeof(No));							//aloca um nó
+	n->i = i;											//inicializa as variaveis
 	n->proximo = NULL;
-
-	if(f->cabeca == NULL){//caso fila vazia sao setados os ponteiros cabeca e fim
-		f->cabeca = n;
-        f->fim = n;
-	}else{
-		No* aux = f->cabeca;
-		while(aux->proximo != NULL){//caso nÃ£o seja o fim da fila faz repeticao ate o fim
-			aux = aux->proximo;
-		}
-		aux->proximo = n;//ultimo cara da fila
-        f->fim = n;//fim da fila pelo ponteiro
+	
+	if(f->cabeca == NULL){								
+		f->cabeca = n;									//a cabeça aponta para o novo primeiro nó
+		f->fim = n;										//o fim aponta  para o novo ultimo nó
+		
+	}else{													
+		f->fim->proximo = n;							//o antigo nó fim aponta para o novo nó fim
+		f->fim = n; 									//o extremo fim aponta para o novo fim
 	}
+	
 }
 
-
-int retirar_fila(Fila* f){ //avanca na fila
-
-	No* n = f->cabeca;
-	int i = n->i;
-	f->cabeca = n->proximo;
-    if(f->fim == f->cabeca){//caso seja o mesmo elemento seta os dois
-        f->cabeca = NULL;
-        f->fim = NULL;
-    }
-	free(n);//libera tudo
-
+int retirar_fila(Fila* f){								//retira nós da fila
+	
+	No* n = f->cabeca;									//n é se torna um ponteiro pro primeiro nó
+	int i = n->i;										//i recebe o elemento guardado no primeiro nó
+	f->cabeca = n->proximo;								//a cabeça é atualizada para apontar para o novo primeiro nó
+	free(n);											//o antigo primeiro nó é liberado
+	
 	return i;
 }
 
-
 int esta_vazia_fila(Fila* f){
-	if(f->cabeca == NULL) return 1;//chega se esta vazia a fila
+	if(f->cabeca == NULL) return 1;						//checa se a fila está vazia e retorna a informação
 	else return 0;
 }
 
-
 void destruir_fila(Fila* f){
-	No* aux = f->cabeca;
-	while(aux->proximo != NULL){//avanca toda a fila
-		No* n = aux;
-		aux = aux->proximo;
-		free(n);//libera o que estava sendo usado antes
+	No* aux = f->cabeca;								//aux recebe o primeiro nó
+	while(aux->proximo != f->fim){
+		No* n = aux;									
+		aux = aux->proximo;								//emquanto o nó apontado pelo proximo nao for o ultimo vai liberando tudo
+		free(n);
 	}
-	free(f->cabeca);//libera cabeca
-    free(f->fim);//libera fim
-	free(f);//libera tudo
+	free(f->cabeca);									//libera o ultimo nó
+	free(f);											//libera a struct extremos
 }

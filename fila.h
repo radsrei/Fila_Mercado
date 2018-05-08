@@ -1,7 +1,9 @@
 #ifndef fila_h
 #define fila_h
+
 typedef struct fila{
 	struct n* cabeca;
+	struct n* fim;
 } Fila;
 
 Fila* criar_fila();

@@ -1,8 +1,6 @@
 #ifndef mercado_h
 #define mercado_h
 
-
-
 typedef struct caixa
 {
 	int ocupado;
